@@ -1,6 +1,7 @@
-# Installing Freeling from source for Ubuntu
+# Installing Freeling from source in Ubuntu
 
 ```bash
+sudo apt install python3-dev
 sudo apt install \
     libboost-dev \
     libboost-regex-dev \
@@ -11,10 +12,15 @@ sudo apt install \
     libboost-filesystem-dev \
     zlib1g
     
-wget \
-  -O freeling.zip \
-  https://github.com/TALP-UPC/FreeLing/releases/download/4.2/FreeLing-src-4.2.zip
-  
-unzip freeling.zip
-cd FreeLing-4.2
+git clone https://github.com/TALP-UPC/FreeLing
+cd FreeLing
+mkdir build && cd build
+cmake .. -DPYTHON3_API=ON
+sudo make -j 4 install
+```
+
+## Usage
+
+```bash
+PYTHONPATH=/usr/local/share/freeling/APIs/python3 python sample.py < text_sample.txt
 ```
