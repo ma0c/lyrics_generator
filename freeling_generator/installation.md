@@ -19,6 +19,14 @@ cmake .. -DPYTHON3_API=ON
 sudo make -j 4 install
 ```
 
+## Manually link to your virtualenv
+
+```bash
+ln -s /usr/local/share/freeling/APIs/python3/_pyfreeling.so ../.virtualenv/lib/python3.7/site-packages
+cp /usr/local/share/freeling/APIs/python3/pyfreeling.py ../.virtualenv/lib/python3.7/site-packages/
+
+```
+
 ## Usage
 
 ```bash
