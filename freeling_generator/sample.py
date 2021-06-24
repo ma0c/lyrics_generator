@@ -113,11 +113,11 @@ la = pyfreeling.lang_ident(DATA+"common/lang_ident/ident-few.dat")
 LANG = "es"
 morphological_options = pyfreeling.maco_options(LANG)
 morphological_options.set_data_files(
-    "",  # USer
+    "",  # User Map Configuration
     DATA + "common/punct.dat",  # Punctuation
     DATA + LANG + "/dicc.src",  # Dictionary
-    DATA + LANG + "/afixos.dat",  # Affixiation Rules (For Stemming)
-    "",  # Com???
+    DATA + LANG + "/afixos.dat",  # AffixAnalysis
+    "",  # Compound Analysis
     DATA + LANG + "/locucions.dat",  # Common locutions
     DATA + LANG + "/np.dat",  # Named Entity Recognizer
     DATA + LANG + "/quantities.dat",  # Words for quantities
@@ -134,16 +134,16 @@ morphological_analyzer = pyfreeling.maco(morphological_options)
 morphological_analyzer.set_active_options(
     False,  # User map for configuration
     True,  # Number Detection
-    True,  # Punctuation
-    True,  # Dates
+    True,  # Punctuation Detection
+    True,  # Dates Detection
     True,  # Dictionary Search
-    True,  # Affixations
-    False,  # Comp (Maybe compounds?)
-    True,  # RTK?
-    True,  # Multiword Reconngnition
-    True,  # NER
-    True,  # Quantity
-    True  # Probability
+    True,  # Affix Analysis
+    False,  # Compound Analysis
+    True,  # Retok Contractions
+    True,  # Multiword Detection
+    True,  # Named Entity Recognition
+    True,  # Quantity Detection
+    True  # Probability Assignment
 )   # default: all created submodules are used
 
 # create tagger, sense anotator, and parsers
